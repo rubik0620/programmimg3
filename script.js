@@ -29,7 +29,6 @@ var grassEaterArr = [];
 var predatorArr = [];
 var viltArr = [];
 var fireArr = [];
-
 function setup() {
     frameRate(2);
     createCanvas(matrix[0].length * side, matrix.length * side);
@@ -47,22 +46,17 @@ function setup() {
             else if (matrix[y][x] == 3) {
                 var predator = new Predator(x, y, 3);
                 predatorArr.push(predator);
-
             }
             else if (matrix[y][x] == 4) {
                 var vilt = new Vilt(x, y, 4);
                 viltArr.push(vilt);
-
             }
         }
     }
-
 }
 function draw() {
-
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
-
             if (matrix[y][x] == 1) {
                 fill("green");
             }
@@ -78,30 +72,24 @@ function draw() {
             else if (matrix[y][x] == 4) {
                 fill("orange");
             }
-
             rect(x * side, y * side, side, side);
         }
     }
-
     for (var i in grassArr) {
         grassArr[i].mul();
     }
     for (var i in grassEaterArr) {
-
         grassEaterArr[i].eat();
         grassEaterArr[i].move();
         grassEaterArr[i].mul();
         grassEaterArr[i].die();
     }
-
     for (var i in predatorArr) {
-
         predatorArr[i].eat();
         predatorArr[i].move();
         predatorArr[i].mul();
         predatorArr[i].die();
     }
-
     for (var i in viltArr) {
         viltArr[i].eat();
         viltArr[i].move();
@@ -109,7 +97,6 @@ function draw() {
             viltArr[i].mul();
             viltArr[i].die();
         }
-
     }
     count++
     if (count > 10) {
@@ -117,7 +104,6 @@ function draw() {
         fier.destroy()
         count = 0
     }
-
     if(grassEaterArr.length == 0){
         for(var i = 0; i < 40; i++){
             var x = floor(random(matrix[0].length - 1))
