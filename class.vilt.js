@@ -1,13 +1,8 @@
 class Vilt {
     constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.index = index
+        super(x, y, index);
         this.energy = 10;
-        this.directions = [];
     }
-
-
     getNewDirections() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -22,21 +17,10 @@ class Vilt {
     }
     chooseCell(char1, char2) {
         this.getNewDirections();
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == char1 || matrix[y][x] == char2) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        return super.chooseCell(char1, char2);
     }
     mul() {
         var empty = random(this.chooseCell(0));
-
         if (empty && this.energy > 15) {
             var newX = empty[0];
             var newY = empty[1];
@@ -48,7 +32,6 @@ class Vilt {
     }
     eat() {
         var food = random(this.chooseCell(1));
-
         if (food) {
             matrix[this.y][this.x] = 0;
             var newX = food[0];
@@ -84,7 +67,6 @@ class Vilt {
                         break;
                     }
                 }
-
                 for (var i in grassArr) {
                     if (newX == grassArr[i].x && newY == grassArr[i].y) {
                         grassArr[i].energy--;
@@ -92,7 +74,6 @@ class Vilt {
                     }
                 }
             }
-
         }
         this.energy--;
     }
@@ -107,5 +88,4 @@ class Vilt {
             }
         }
     }
-
 }
