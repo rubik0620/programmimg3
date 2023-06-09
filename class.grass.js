@@ -1,7 +1,12 @@
 class Grass {
-    constructor(x, y, index){
+    
+    constructor(x, y, index) {
         super(x, y, index);
         this.multiply = 0;
+    }
+    chooseCell(character) {
+        return super.chooseCell(character);
+
     }
 
     mul() {
