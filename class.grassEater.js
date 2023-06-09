@@ -3,8 +3,6 @@ class GrassEater {
         super(x, y, index);
         this.energy = 5;
     }
-
-
     getNewDirections() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -23,7 +21,6 @@ class GrassEater {
     }
     mul() {
         var empty = random(this.chooseCell(0));
-
         if (empty && this.energy > 10) {
             var newX = empty[0];
             var newY = empty[1];
@@ -35,7 +32,6 @@ class GrassEater {
     }
     eat() {
         var food = random(this.chooseCell(1));
-
         if (food) {
             matrix[this.y][this.x] = 0;
             var newX = food[0];
@@ -75,5 +71,4 @@ class GrassEater {
             }
         }
     }
-
 }
