@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		.dv {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.button1 {
+			font-weight: 500;
+			background-color: white;
+			color: #04EB00;
+			border: 2.2px solid #04EB00;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+
+		.button1:hover {
+			background-color: #04EB00;
+			color: white;
+		}
+
+		.button2 {
+			font-weight: 500;
+			background-color: white;
+			color: #00C1C9;
+			border: 2.2px solid #00C1C9;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+
+		.button2:hover {
+			background-color: #00C1C9;
+			color: white;
+		}
+
+		.button3 {
+			font-weight: 500;
+			background-color: white;
+			color: #4701c9;
+			border: 2.2px solid #4701c9;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+
+		.button3:hover {
+			background-color: #4701c9;
+			color: white;
+		}
+
+		.button4 {
+			background-color: white;
+			color: #c901bf;
+			border: 2px solid #c901bf;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+
+		.button4:hover {
+			background-color: #c901bf;
+			color: white;
+		}
+
+		.window {
+			display: none;
+			margin: 25px 0;
+		}
+
+		.legend {
+			display: flex;
+			width: 100%;
+			justify-content: space-around;
+		}
+
+		.legend>div {
+			display: flex;
+			height: 50px;
+		}
+
+		.gr {
+			width: 50px;
+			height: 50px;
+			background: #00C1C9;
+		}
+
+		.gr1 {
+			width: 25px;
+			height: 50px;
+			background: #04EB00;
+			position: absolute;
+
+		}
+
+		.ge {
+			width: 50px;
+			height: 50px;
+			background: yellow;
+		}
+
+		.pred {
+			width: 50px;
+			height: 50px;
+			background: #fd1f1f;
+		}
+
+		.vl {
+			width: 50px;
+			height: 50px;
+			background: #FFAA34;
+		}
+
+		.pr {
+			width: 50px;
+			height: 50px;
+			background: #B000B0;
+		}
+
+		.legend>div>p {
+			font-size: 26px;
+			margin: auto;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>Final Project</title>
+	<meta charset="utf8">
+</head>
+<body>
+</body>
+<div class="cont">
+	<div class="dv">
+		<div class="dv1">
+			<button id="summer" class="button1">Summer</button>
+			<button id="winter" class="button2">Winter</button>
+		</div>
+		<div class="dv2">
+			<button id="static" class="button3">Statistics</button>
+			<button id="music" class="button4">On/Off</button>
+		</div>
+	</div>
+	<div>
+		<div id="window" class="window">
+			<div class="legend">
+				<div>
+					<div class="gr"></div>
+					<div class="gr1"></div>
+					<p>Grasses: <span id="grasses"></span></p>
+				</div>
+				<div>
+					<div class="ge"></div>
+					<p id="demo">Grass Eaters: <span id="grassEaters"></span></p>
+				</div>
+				<div>
+					<div class="pred"></div>
+					<p>Predators: <span id="predators"></span></p>
+				</div>
+				<div>
+					<div class="vl"></div>
+					<p>Virus/Vilt: <span id="vilt"></span></p>
+				</div>
+				<div>
+					<div class="pr"></div>
+					<p>Fertilizer/Parart: <span id="parart"></span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sv">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+		<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</div>
+</div>
+<script>
+	//1-in iradardzutyun----------------------------------------------------------------
+	var isPlaying = false;
+	var audio = new Audio("music.mp3");
+	var audio1 = new Audio("music1.mp3");
+
+
+	music.addEventListener("click", function () {
+		if (grassColor == "#04EB00") {
+			audio1.pause();
+			audio1.currentTime = 0;
+			if (isPlaying) {
+				audio.pause();
+				audio.currentTime = 0;
+			} else if (!isPlaying) {
+				audio.play();
+			}
+			isPlaying = !isPlaying;
+		}
+		if (grassColor == "#00C1C9") {
+			audio.pause();
+			audio.currentTime = 0;
+			if (isPlaying) {
+				audio1.pause();
+				audio1.currentTime = 0;
+			} else if (!isPlaying) {
+				audio1.play();
+			}
+			isPlaying = !isPlaying;
+		}
+	});
+
+	summer.addEventListener("click", function () {
+		if (audio1.play && isPlaying) {
+			audio1.pause();
+			audio1.currentTime = 0;
+			audio.play();
+		}
+	});
+
+	winter.addEventListener("click", function () {
+		if (audio.play && isPlaying) {
+			audio.pause();
+			audio.currentTime = 0;
+			audio1.play();
+		}
+	});
+	//----------------------------------------------------------------------------------
+
+
+
+	//2-rd iradardzutyun----------------------------------------------------------------
+	$(document).ready(function () {
+		$("#static").click(function () {
+			$("#window").toggle();
+		});
+	});
+
+	let grasses = document.getElementById("grasses");
+	let grassEaters = document.getElementById("grassEaters");
+	let predators = document.getElementById("predators");
+	let vilt = document.getElementById("vilt");
+	let parart = document.getElementById("parart");
+
+	function fetchAndUpdateContent() {
+		let arr = ["grasses", "grassEaters", "predators", "vilt", "parart"];
+		for (let i = 0; i < arr.length; i++) {
+			fetch("value/" + arr[i] + ".txt")
+				.then(response => response.text())
+				.then(data => {
+					let element = document.getElementById(arr[i]);
+					if (element) {
+						element.innerHTML = "";
+						let par = document.createElement("span");
+						par.textContent = data;
+						element.appendChild(par);
+					}
+				})
+				.catch(error => {
+					console.error("Error:", error);
+				});
+		}
+	}
+	fetchAndUpdateContent();
+	setInterval(fetchAndUpdateContent, 100);
+	//----------------------------------------------------------------------------------
+</script>
+</html>
